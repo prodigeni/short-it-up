@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAKSkpAAAAAAAAAAAAAAAAADgcAABEIgAAgkEAAIGBAACBgQAAgkEAAEQiAAA4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADH4wAAu90AAH2+AAB+fgAAfn4AAH2+AAC73QAAx+MAAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon">
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>IP Address</th>
+        <th>User Agent</th>
+        <th>Time</th>
+        <th>Referer Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (var i = 0; i < stats.visitors.length; i++) { %>
+    <tr>
+        <td><%= stats.visitors[i].ipAddress %></td>
+        <td><%= stats.visitors[i].userAgent %></td>
+        <td><%= stats.visitors[i].time %></td>
+        <td><%= stats.visitors[i].referer ? stats.visitors[i].referer : 'Direct' %></td>
+    </tr>
+    </tbody>
+    <% } %>
+</table>
+</body>
+</html>

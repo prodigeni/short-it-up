@@ -1,0 +1,208 @@
+@font-face {
+  font-family: "Nassim";
+  src: url('../fonts/nassim-regular.eot');
+  src: url('../fonts/nassim-regular.eot?#iefix') format('eot'), url('../fonts/nassim-regular.woff') format('woff'), url('../fonts/nassim-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Nassim";
+  src: url('../fonts/nassim-bold.eot');
+  src: url('../fonts/nassim-bold.eot?#iefix') format('eot'), url('../fonts/nassim-bold.woff') format('woff'), url('../fonts/nassim-bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+// Style variables
+
+@nassim: Nassim, Tahoma, Arial;
+@font-family: Tahoma, Arial;
+@primary-color: #666;
+@secondary-color: tomato;
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+* {
+  &::selection {
+    background-color: lighten(@secondary-color, 10%);
+    color: #eee;
+  }
+  &::-moz-selection {
+    background-color: lighten(@secondary-color, 10%);
+    color: #eee;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: @secondary-color;
+  -webkit-transition: all .7s linear;
+  -moz-transition: all .7s linear;
+  -ms-transition: all .7s linear;
+  -o-transition: all .7s linear;
+  transition: all .7s linear;
+  &:hover {
+    border-bottom: dotted 1px @secondary-color;
+    color: darken(@secondary-color, 10%);
+  }
+}
+
+html {
+  font-size: 16px;
+}
+body {
+  padding: 0;
+  margin: 0 0 65px 0;
+  font-family: @font-family;
+  color: @primary-color;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  color: @primary-color;
+  h1 {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin: 3% auto;
+  text-align: center;
+}
+
+input {
+  font-size: 2rem;
+  color: @primary-color;
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+input[type=text]:focus {
+  border-color: @secondary-color;
+}
+
+input[type=submit]:hover {
+  border-color: @secondary-color;
+}
+
+.loader-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dcecb;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+
+.loader {
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 5em auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em #FFF;
+}
+
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dcecb;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+footer {
+  position: fixed;
+  height: 75px;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+  background: #FBFBF9;
+  h4 {
+    margin: 0;
+  }
+  i {
+    color: @secondary-color;
+  }
+}

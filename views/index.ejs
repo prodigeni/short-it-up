@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %></title>
+    <meta name="keywords" content="URL, link, shorten, shortener, کوتاه‌کننده, لینک, آدرس سایت">
+    <meta name="description" content="A simple URL shortener">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAKSkpAAAAAAAAAAAAAAAAADgcAABEIgAAgkEAAIGBAACBgQAAgkEAAEQiAAA4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADH4wAAu90AAH2+AAB+fgAAfn4AAH2+AAC73QAAx+MAAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon">
+</head>
+<body>
+<div class="loader-wrap"><div class="loader"></div></div>
+<header>
+    <h1>Short It Up!</h1>
+</header>
+<main role="main">
+    <div class="wrapper">
+        <div class="container">
+            <form action="/" method="post" id="frm">
+                <input type="text" name="address" id="address" placeholder="http://"/>
+                <input type="submit" id="submit" value="Shorten"/>
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <h4>
+        Developed with <i>♥</i> by <a href="http://09s.ir/1">Mohamad Jahani</a> @Bugpedia
+    </h4>
+    <div class="addons"><small><a href="http://09s.ir/2">Firefox Addon</a></small></div>
+    <small>Total links: <%= linksCount %> | Total visits: <%= visitsCount %></small>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#frm').on('submit', function(e) {
+        e.preventDefault();
+        if ($('#address').val() != '') {
+            $('header, .wrapper').fadeOut('fast', function() {
+                $('.loader-wrap').fadeIn('fast');
+            });
+            $.post('/', $('#frm').serialize(), function(response){
+                //console.log(response);
+                $('#address').val('http://09s.ir/' + response.id).focus().select();
+                $('header, .wrapper').fadeIn('fast', function() {
+                    $('.loader-wrap').fadeOut();
+                });
+            });
+        }
+        else {
+            $('#address').focus();
+        }
+    });
+</script>
+</body>
+</html>
